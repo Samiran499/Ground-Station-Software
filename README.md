@@ -3,7 +3,9 @@
 The Ground Station Software is a software application used to receive signals from the rocket and display the received data. It is built with Electron.js for the front-end interface and utilizes a Python backend.
 
 ## Installation
-
+For End User.
+You Can Download Release from here:
+- RT Ground Station ,[Download](https://raw.githubusercontent.com/IITB-Rocket-Team-Avionics/Ground-Station-Software/main/setup/RT%20Ground%20Station%20Setup%201.0.0.exe?token=GHSAT0AAAAAACCTW4HW5YFUSUHBG4CTNUJ6ZDW7ILA)
 Before running the Ground Station Software, ensure that you have the following prerequisites installed:
 
 - Node.js (including npm) - [Download Node.js](https://nodejs.org)
