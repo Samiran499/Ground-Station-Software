@@ -5,7 +5,7 @@ The Ground Station Software is a software application used to receive signals fr
 ## Installation
 For End User.
 You Can Download Release from here:
-- RT Ground Station ,[Download](https://raw.githubusercontent.com/IITB-Rocket-Team-Avionics/Ground-Station-Software/main/setup/RT%20Ground%20Station%20Setup%201.0.0.exe?token=GHSAT0AAAAAACCTW4HW5YFUSUHBG4CTNUJ6ZDW7ILA)
+- RT Ground Station ,[Download](setup/RT Ground Station Setup 1.0.0.exe)
 
 For Developers.
 Before running the Ground Station Software, ensure that you have the following prerequisites installed:
