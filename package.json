@@ -20,25 +20,28 @@
             "icon": "logo/rtgs.png",
             "extraFiles": [{
                     "from": "support/data.json",
-                    "to": "C:/rtgs/data.json"
+                    "to": "data.json"
                 },
                 {
                     "from": "support/settings.py",
-                    "to": "C:/rtgs/settings.py"
+                    "to": "settings.py"
                 },
                 {
                     "from": "support/receive.py",
-                    "to": "C:/rtgs/receive.py"
+                    "to": "receive.py"
                 },
                 {
                     "from": "support/pyro.py",
-                    "to": "C:/rtgs/pyro.py"
+                    "to": "pyro.py"
                 },
                 {
                     "from": "support/conf.json",
-                    "to": "C:/rtgs/conf.json"
+                    "to": "conf.json"
                 }
             ]
+        },
+        "nsis": {
+            "include": "install.nsh"
         }
     },
     "devDependencies": {

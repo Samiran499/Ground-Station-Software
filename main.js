@@ -25,7 +25,7 @@ function createWindow() {
         slashes: true
     }))
 
-    win.webContents.openDevTools();
+
     // Add the custom menu item
     const appMenu = Menu.buildFromTemplate([{
         label: 'File',
