@@ -1,0 +1,51 @@
+{
+    "name": "groundstation",
+    "version": "1.0.0",
+    "description": "rocket team ground station software",
+
+    "main": "main.js",
+    "author": { "name": "Abhijeet Kujur", "email": "abhibhai1507@gmail.com" },
+    "scripts": {
+        "start": "electron .",
+        "electron:build": "electron-builder"
+    },
+    "build": {
+        "appId": "com.iitb.rtgs",
+        "productName": "RT Ground Station ",
+        "directories": {
+            "output": "dist"
+        },
+        "win": {
+            "target": "nsis",
+            "icon": "logo/rtgs.png",
+            "extraFiles": [{
+                    "from": "support/data.json",
+                    "to": "C:/rtgs/data.json"
+                },
+                {
+                    "from": "support/settings.py",
+                    "to": "C:/rtgs/settings.py"
+                },
+                {
+                    "from": "support/receive.py",
+                    "to": "C:/rtgs/receive.py"
+                },
+                {
+                    "from": "support/pyro.py",
+                    "to": "C:/rtgs/pyro.py"
+                },
+                {
+                    "from": "support/conf.json",
+                    "to": "C:/rtgs/conf.json"
+                }
+            ]
+        }
+    },
+    "devDependencies": {
+        "electron": "^22.3.11",
+        "electron-builder": "^24.3.0"
+    },
+    "dependencies": {
+        "python-shell": "^1.0.7"
+    }
+}

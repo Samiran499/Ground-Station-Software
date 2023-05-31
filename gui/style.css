@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+h1 {
+    color: red;
+}
+
+p {
+    font-size: 16px;
+}
+
+img {
+    width: 100px;
+}
+
+.navigation {
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    box-sizing: border-box;
+    background: #222222;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.s_li {
+    list-style: none;
+    float: right;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    order: 2;
+}
+
+.s_li h2 {
+    color: #fff;
+    font-family: 'Bebas Neue', cursive;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px;
+    text-transform: uppercase;
+    /* Make the a element a block element */
+}
+
+.s_li p {
+    color: #fff;
+    font-family: 'Bebas Neue', cursive;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+
+.image-container {
+    position: relative;
+    width: 50px;
+    margin: 10px;
+    /* Adjust the width and height to match your image size */
+    height: 50px;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: opacity 0.3s;
+    /* Optional: Add a smooth transition effect */
+}
+
+.image1 {
+    background-image: url(images/settings_default.png);
+}
+
+.image2 {
+    background-image: url(images/settings_hover.png);
+    opacity: 0;
+    /* Hide the second image initially */
+}
+
+.image-container:hover .image1 {
+    opacity: 0;
+    /* Hide the first image on hover */
+}
+
+.image-container:hover .image2 {
+    opacity: 1;
+    /* Show the second image on hover */
+}
+
+.body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background: linear-gradient(180deg, #5DABBC 20%, #0B2126 90%);
+    ;
+    display: flex;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.box {
+    position: absolute;
+    top: 80px;
+    z-index: 5;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.c_one {
+    flex-basis: 30%;
+    border: 0px none rgba(100, 100, 100, 0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 0px;
+    background: rgb(15, 15, 15);
+    -webkit-backdrop-filter: blur(42px);
+    backdrop-filter: blur(42px);
+    padding: 5px 5px;
+    margin: 2.5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 90%;
+    margin-left: 5px;
+}
+
+.c_two {
+    flex-basis: 30%;
+    border: 0px none rgba(100, 100, 100, 0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background: whitesmoke;
+    padding: 20px 20px;
+    margin: 2.5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 90%;
+}
+
+.c_three {
+    flex-basis: 30%;
+    border: 0px none rgba(100, 100, 100, 0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background: whitesmoke;
+    padding: 5px 5px;
+    margin: 2.5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 90%;
+}
+
+.e_one {
+    border-radius: 0px;
+    background: white;
+    margin: 2px;
+    padding: 1px 25px;
+    width: 90px;
+    margin-bottom: 1px;
+    flex-basis: 30%;
+}
+
+.e_one h2 {
+    font-size: 1rem;
+    color: #000000;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.e_one {
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    font-family: 'Bebas Neue', cursive;
+}
+
+.chart {
+    flex-basis: 30%;
+    height: 200px;
+    width: 500px;
+}
+
+.button {
+    border-radius: 5px;
+    /* Makes the button round */
+    font-family: 'Bebas Neue', cursive;
+    font-size: 30px;
+    /* Set the font size */
+    padding: 15px;
+    /* Set the padding */
+    background-color: rgb(9, 5, 17);
+    /* Set the background color */
+    color: white;
+    /* Set the text color */
+    text-align: center;
+    /* Remove the border */
+    cursor: pointer;
+    margin: 5px;
+    /* Change the cursor to a pointer on hover */
+}
+
+.button:hover {
+    color: #1F94DB;
+    border: 0.4px solid #ffffff;
+}
+
+.logo {
+    margin-top: 7px;
+    margin-left: 10px;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.settings {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.603);
+    backdrop-filter: blur(5px);
+    z-index: 15;
+    padding: 20px;
+    box-sizing: border-box;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.s_card {
+    width: 80vw;
+    height: 80vh;
+    background: linear-gradient(#5DABBC, rgb(0, 0, 0));
+    border-radius: 5px;
+    display: flexbox;
+    flex-direction: column;
+    overflow: auto;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.top {
+    position: relative;
+    flex: 1;
+    display: flex;
+    padding: 0 0 0 15px;
+    align-items: center;
+    flex-direction: row;
+    background: #222222;
+    justify-content: flex-end;
+    line-height: 20px;
+}
+
+.top .title {
+    font-size: 25px;
+    font-weight: 30;
+    text-align: left;
+    color: #fff;
+    margin-right: auto;
+    letter-spacing: 0.05em;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.top .button {
+    border-radius: 0px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 25px;
+    padding: 10px;
+    background-color: #252525;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.middle_a {
+    position: relative;
+    flex: 1;
+    margin: 10px;
+    border-radius: 0px;
+    align-items: center;
+    flex-direction: row;
+    background: whitesmoke;
+    justify-content: space-evenly;
+    line-height: 50px;
+}
+
+.middle_a label {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    margin-left: 50px;
+    color: #000000;
+}
+
+.bottom {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: start;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.middle_b {
+    margin: 10px;
+    top: 0px;
+    width: 50vw;
+    display: flexbox;
+    border-radius: 0px;
+    align-items: center;
+    flex-direction: column;
+    background: whitesmoke;
+    justify-content: center;
+}
+
+.middle_b h1 {
+    position: relative;
+    font-size: 25px;
+    font-weight: 30;
+    color: #fff;
+    background-color: #222222;
+    text-align: center;
+    letter-spacing: 0.05em;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.dpoint {
+    position: relative;
+    display: flex;
+    align-items: left;
+    flex-direction: row;
+}
+
+.dpoint label {
+    display: block;
+    font-weight: 500;
+    font-size: 18px;
+    font-weight: 30;
+    padding: 6px 0 15px 0;
+    margin-left: 50px;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+}
+
+input {
+    border: 2px solid #077e7e;
+    max-width: 100px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 0.1rem;
+    padding: 1rem;
+}
+
+input:focus,
+button:focus {
+    border: 2px solid #000000;
+}
+
+.selectButton {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    right: 20px;
+    align-items: center;
+    height: 1.2rem;
+    font-family: 'Bebas Neue', cursive;
+    max-width: 300px;
+    width: 100%;
+    background-color: white;
+    border: 2px solid #077e7e;
+    position: absolute;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    padding: 4px;
+    transform: rotate(45deg);
+}
+
+.dropdown {
+    z-index: 40;
+    position: absolute;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.option {
+    display: none;
+}
+
+.select-item {
+    display: flex;
+    top: 0px;
+    padding: 1rem;
+    width: 300px;
+    font-weight: 400;
+    background-color: #b4b1b1;
+    color: black;
+    position: relative;
+}
+
+.select-item:hover {
+    background-color: #f2f2f2;
+    border: 0.4px solid #000000;
+}
+
+.hidden {
+    display: none;
+}

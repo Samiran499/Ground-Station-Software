@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <div id="SETTINGS" class="settings">
+        <div class="s_card" id="card">
+            <form id="myForm">
+                <div class="top">
+                    <div class="title">
+                        Settings
+                    </div>
+                    <button class="button" onclick="closeCard()">Close</button>
+                    <button class="button" type="submit">Save</button>
+                </div>
+                <div class="middle_a">
+                    <label for="ComPort">COM PORT :</label>
+                    <input type="number" id="ComPort" min="1" max="100" name="ComPort" required>
+                    <label for="numberOfData">No. of Incoming DataPoints :</label>
+                    <input type="number" id="numberOfData" min="1" max="10" name="numberOfData" oninput="createDataPoints()" required>
+                    <label for="SampleRate">Sample Rate (Hz) :</label>
+                    <input type="number" id="SampleRate" min="1" max="1000" name="SampleRate" required>
+                </div>
+                <div class="bottom">
+                    <div class="middle_b">
+                        <h1>Data Points</h1>
+                        <div id="DATACONTAINER">
+
+                        </div>
+                    </div>
+
+                    <div class="middle_b">
+                        <h1>Charts</h1>
+                        <div id="CHARTCONTAINER">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+
+    </div>
+</head>
+
+<body class="body">
+    <script src="linkers/Chart.min.js"></script>
+    <div class="navigation">
+        <div class="logo">
+            <img src="images/rtlogo1.png">
+        </div>
+        <div class="s_li">
+            <h2>Timer</h2>
+            <p id="TIME">status</p>
+        </div>
+        <div class="s_li">
+            <h2 id="STATE"></h2>
+            <p>State</p>
+        </div>
+        <div class="s_li">
+            <h2>Pyro</h2>
+            <p id="PYRO_STATUS">status</p>
+        </div>
+        <div class="s_li">
+            <div class="image-container" onclick="settings()">
+
+                <div class="image image1"></div>
+
+                <div class="image image2"></div>
+            </div>
+            <p>settings</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div id="box" class="c_one">
+        </div>
+        <div class="c_two">
+            <div class="chart">
+                <canvas id="CHART1"></canvas>
+            </div>
+            <div class="chart">
+                <canvas id="CHART2"></canvas>
+            </div>
+        </div>
+        <div class="c_two">
+            <div class="chart">
+                <canvas id="CHART3"></canvas>
+            </div>
+            <div class="chart">
+                <canvas id="CHART4"></canvas>
+            </div>
+        </div>
+        <div id="button" class="c_three">
+            <div id="START" class="button">Start</div>
+            <div id="PYRO" class="button">Pyro</div>
+        </div>
+    </div>
+    <script src="linkers/Buttons.js"></script>
+    <script src="linkers/Data_Fetch.js"></script>
+    <script src="linkers/Settings.js"></script>
+    <script src="linkers/Charts_Labels.js"></script>
+    <script src="linkers/Save_Settings.js"></script>
+
+</body>
+
+</html>
