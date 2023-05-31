@@ -5,7 +5,7 @@ The Ground Station Software is a software application used to receive signals fr
 ## Installation
 For End User.
 You Can Download Release from here:
-- RT Ground Station ,[Download](setup/RT Ground Station Setup 1.0.0.exe)
+- RT Ground Station [Download](setup/RT Ground Station Setup 1.0.0.exe)
 
 For Developers.
 Before running the Ground Station Software, ensure that you have the following prerequisites installed:
