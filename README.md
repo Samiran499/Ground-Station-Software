@@ -13,7 +13,7 @@ Before running the Ground Station Software, ensure that you have the following p
 - Node.js (including npm) - [Download Node.js](https://nodejs.org)
 - Python (version >= 3) - [Download Python](https://www.python.org/downloads/)
 
-To install the Ground Station Software, follow these steps:
+To load the Ground Station Software for Development, follow these steps:
 
 1. Clone the repository to your local machine:
 
