@@ -31,7 +31,7 @@ This will install the necessary Node.js packages specified in the package.json f
 
 To start the Ground Station Software, use the following command:
  	
-	```shell
+	
  	npm start
 This will launch the application and open the user interface in your default web browser.
 ## Contributing
