@@ -1,8 +1,10 @@
 function saveSettings() {
     const dataPointValues = {};
+    const DdataPointValues = {};
     const chartPointValues = {};
     const comPort = document.getElementById('ComPort').value;
-    const numberOfData = document.getElementById('numberOfData').value;
+    const numberOfAData = document.getElementById('numberOfAData').value;
+    const numberOfDData = document.getElementById('numberOfDData').value;
     const SampleRate = document.getElementById('SampleRate').value;
     // Get selected data point values
     dataPoints.forEach((dataPoint, index) => {
@@ -12,11 +14,24 @@ function saveSettings() {
         if (selectedOption) {
             dataPointValues[dataPointKey] = {
                 value: selectedOption.value,
-                id: selectedOption.id
+                id: selectedOption.id,
+                calib: Config[0].IncomingData[selectedOption.value].calib
             };
         }
     });
 
+    DdataPoints.forEach((dataPoint, index) => {
+        const selectedOption = dataPoint.dropdownDiv.querySelector('input:checked');
+        const dataPointKey = 'data' + (index + 1);
+
+        if (selectedOption) {
+            DdataPointValues[dataPointKey] = {
+                value: selectedOption.value,
+                id: selectedOption.id,
+                calib: Config[0].IncomingData[selectedOption.value].calib
+            };
+        }
+    });
     // Get selected chart point values
     chartPoints.forEach((chartPoint, index) => {
         const selectedOption = chartPoint.dropdownDiv.querySelector('input:checked');
@@ -31,10 +46,12 @@ function saveSettings() {
     });
 
     const jsonData = {
-        dataPoints: dataPointValues,
+        AdataPoints: dataPointValues,
+        DdataPoints: DdataPointValues,
         chartPoints: chartPointValues,
         comPort: comPort,
-        numberOfData: numberOfData,
+        numberOfAData: numberOfAData,
+        numberOfDData: numberOfDData,
         SampleRate: SampleRate
 
     };

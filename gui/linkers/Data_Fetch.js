@@ -2,15 +2,18 @@ let Rx = false;
 const flight_data = new Array();
 const chartValues = [];
 const chartID = [];
-const dataID = [];
+const AdataID = [];
+const DdataID = [];
 let comport;
-let numdata;
+let numAdata;
+let numDdata;
 let samplerate;
 
 async function loadData() {
     const response = await fetch('C:/rtgs/conf.json');
     const data = await response.json();
-    const extractedDataID = {};
+    const extractedADataID = {};
+    const extractedDDataID = {};
     const extractedChartPoint = {};
     const extractedChartID = {};
 
@@ -21,27 +24,34 @@ async function loadData() {
         extractedChartID[key] = data.chartPoints[key].id;
     }
     extractedComPort = data.comPort;
-    extractedNumData = data.numberOfData;
+    extractedANumData = data.numberOfAData;
+    extractedDNumData = data.numberOfDData;
     extractedSampleRate = data.SampleRate;
-    for (const key in data.dataPoints) {
-        extractedDataID[key] = data.dataPoints[key].id;
+    for (const key in data.AdataPoints) {
+        extractedADataID[key] = data.AdataPoints[key].id;
+    }
+    for (const key in data.DdataPoints) {
+        extractedDDataID[key] = data.DdataPoints[key].id;
     }
 
 
-    return { extractedDataID, extractedChartID, extractedChartPoint, extractedNumData, extractedComPort, extractedSampleRate };
+    return { extractedADataID, extractedDDataID, extractedChartID, extractedChartPoint, extractedANumData, extractedDNumData, extractedComPort, extractedSampleRate };
 }
 
 function Load() {
     loadData()
         .then(data => {
             chartID.length = 0;
-            dataID.length = 0;
+            AdataID.length = 0;
+            DdataID.length = 0;
             chartValues.length = 0;
             chartValues.push(data.extractedChartPoint);
             chartID.push(data.extractedChartID);
-            dataID.push(data.extractedDataID);
+            AdataID.push(data.extractedADataID);
+            DdataID.push(data.extractedDDataID);
             comport = data.extractedComPort;
-            numdata = data.extractedNumData;
+            numAdata = data.extractedANumData;
+            numDdata = data.extractedDNumData;
             samplerate = data.extractedSampleRate;
             loadChartLabel();
         })
@@ -49,8 +59,8 @@ function Load() {
 Load();
 
 let checktime = 0;
+let descent_par = false;
 setInterval(() => {
-
     if (Rx === true) {
 
         fetch('C:/rtgs/data.json')
@@ -59,16 +69,24 @@ setInterval(() => {
 
                 if (checktime !== data.time) {
                     checktime = data.time;
-                    flight_data.push(data)
-                    updateChart(data)
-                    RACC_s.innerHTML = data.racc + " m/sec2";
-                    RALT_s.innerHTML = data.ralt + " m";
-                    KALT_s.innerHTML = data.kalt + " m";
-                    KACC_s.innerHTML = data.kacc + " m/sec2";
-                    KVEL_s.innerHTML = data.kvel + " m/sec";
+                    flight_data.push(data);
+                    updateChart(data);
+                    ACCX_s.innerHTML = data.accx + " m/sec2";
+                    ACCZ_s.innerHTML = data.accz + " m/sec2";
+                    ACCY_s.innerHTML = data.accy + " m/sec2";
+                    ALT_s.innerHTML = data.alt + " m";
+                    GYTOX_s.innerHTML = data.gyrox + " deg";
+                    GYTOY_s.innerHTML = data.gyroy + " deg";
+                    GYTOZ_s.innerHTML = data.gyroz + " deg";
+                    TEMP_s.innerHTML = data.temp + " C";
+                    VEL_s.innerHTML = data.vel + " m/sec";
+                    LAT_s.innerHTML = data.lat_deg + " deg " + data.lat_min + " min " + data.lat_sec + " sec " + data.lat_hem;
+                    LONG_s.innerHTML = data.long_deg + " deg " + data.long_min + " min " + data.long_sec + " sec " + data.long_hem;
                     TIME_s.innerHTML = data.time / 1000 + " sec";
-                    if (data.state === 4) {
-                        PYRO_s.innerHTML = "ON";
+                    if (data.state > 2 && descent_par == false) {
+                        console.log("gege")
+                        descent_par = true
+                        ipcRenderer.send('run-script', 'descent');
                     }
                     if (Pyro_Obj.hasOwnProperty(data.pyro)) {
                         PYRO_s.innerHTML = Pyro_Obj[data.pyro];

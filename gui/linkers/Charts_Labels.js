@@ -108,25 +108,47 @@ const container = document.getElementById('box');
 
 // Create an array of data for the cards
 const LabelData = [{
-    title: 'Kalman Altitude',
+    title: 'ALTITUDE',
     text: '0',
-    id: 'KALT'
+    id: 'ALT'
 }, {
-    title: 'Kalman Velocity',
+    title: 'Acceleration X',
     text: '0',
-    id: 'KVEL'
+    id: 'ACCX'
 }, {
-    title: 'Kalman Acceleration',
+    title: 'Acceleration Y',
     text: '0',
-    id: 'KACC'
+    id: 'ACCY'
 }, {
-    title: 'Raw Acceleration',
+    title: 'Acceleration Z',
     text: '0',
-    id: 'RACC'
+    id: 'ACCZ'
 }, {
-    title: 'Raw Altitude',
+    title: 'VELOCITY ',
     text: '0',
-    id: 'RALT'
+    id: 'VEL'
+}, {
+    title: 'GYRO X',
+    text: '0',
+    id: 'GYROX'
+}];
+
+const LabelDataBottom = [{
+    title: 'GYRO Y',
+    text: '0',
+    id: 'GYROY'
+}, {
+    title: 'GYRO Z',
+    text: '0',
+    id: 'GYROZ'
+}, {
+    title: 'LATITUDE',
+    text: "14 deg 2 min 5 sec E ",
+    id: 'LAT'
+}, {
+    title: 'LONGITUDE',
+    text: "14 deg 2 min 5 sec E ",
+    id: 'LONG'
 }];
 
 // Loop through the data and create a card for each item
@@ -151,11 +173,40 @@ LabelData.forEach(item => {
 });
 // get a reference to the canvas element
 
-const RACC_s = document.getElementById("RACC");
-const RALT_s = document.getElementById("RALT");
-const KALT_s = document.getElementById("KALT");
-const KVEL_s = document.getElementById("KVEL");
-const KACC_s = document.getElementById("KACC");
+const Bottomcontainer = document.getElementById('bottombox');
+// Loop through the data and create a card for each item
+LabelDataBottom.forEach(item => {
+    // Create a new card element
+    const label = document.createElement('div');
+    label.classList.add('be_one');
+
+    // Create a heading element and add it to the card
+    const heading = document.createElement('h2');
+    heading.textContent = item.title;
+    label.appendChild(heading);
+
+    // Create a paragraph element and add it to the card
+    const paragraph = document.createElement('p');
+    paragraph.id = item.id;
+    paragraph.textContent = item.text;
+    label.appendChild(paragraph);
+
+    // Add the card to the container
+    Bottomcontainer.appendChild(label);
+});
+// get a reference to the canvas element
+
+const ACCX_s = document.getElementById("ACCX");
+const ACCZ_s = document.getElementById("ACCZ");
+const ACCY_s = document.getElementById("ACCY");
+const ALT_s = document.getElementById("ALT");
+const GYTOX_s = document.getElementById("GYROX");
+const GYTOY_s = document.getElementById("GYROY");
+const GYTOZ_s = document.getElementById("GYROZ");
+const TEMP_s = document.getElementById("TEMP");
+const VEL_s = document.getElementById("VEL");
+const LAT_s = document.getElementById("LAT");
+const LONG_s = document.getElementById("LONG");
 const TIME_s = document.getElementById("TIME");
 const STATE_s = document.getElementById("STATE");
 const PYRO_s = document.getElementById("PYRO_STATUS");
@@ -167,9 +218,11 @@ const Pyro_Obj = {
 
 const State_Obj = {
     '0': "IDLE",
-    '1': "LIFTOFF",
-    '2': "BURNOUT",
-    '3': "APOGEE",
-    '4': "CHUTE",
-    '5': "TOUCHDOWN"
+    '1': "POWERED ASCENT",
+    '2': "COASTING",
+    '3': "DESCENT",
+    '4': "DROGUE OUT",
+    '5': "MAIN OUT",
+    '7': "TOUCHDOWN",
+    '6': "TOUCHDOWN IDLE"
 }

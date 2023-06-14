@@ -15,19 +15,26 @@
                 <div class="middle_a">
                     <label for="ComPort">COM PORT :</label>
                     <input type="number" id="ComPort" min="1" max="100" name="ComPort" required>
-                    <label for="numberOfData">No. of Incoming DataPoints :</label>
-                    <input type="number" id="numberOfData" min="1" max="10" name="numberOfData" oninput="createDataPoints()" required>
+                    <label for="numberOfAData">Ascent DataPoints :</label>
+                    <input type="number" id="numberOfAData" min="1" max="30" name="numberOfAData" oninput="createADataPoints()" required>
+                    <label for="numberOfDData">Descent DataPoints :</label>
+                    <input type="number" id="numberOfDData" min="1" max="30" name="numberOfDData" oninput="createDDataPoints()" required>
                     <label for="SampleRate">Sample Rate (Hz) :</label>
                     <input type="number" id="SampleRate" min="1" max="1000" name="SampleRate" required>
                 </div>
                 <div class="bottom">
                     <div class="middle_b">
-                        <h1>Data Points</h1>
-                        <div id="DATACONTAINER">
+                        <h1>Ascent Data Points</h1>
+                        <div id="ADATACONTAINER">
 
                         </div>
                     </div>
+                    <div class="middle_b">
+                        <h1>Descent Data Points</h1>
+                        <div id="DDATACONTAINER">
 
+                        </div>
+                    </div>
                     <div class="middle_b">
                         <h1>Charts</h1>
                         <div id="CHARTCONTAINER">
@@ -52,6 +59,10 @@
         <div class="s_li">
             <h2>Timer</h2>
             <p id="TIME">status</p>
+        </div>
+        <div class="s_li">
+            <h2>TEMP</h2>
+            <p id="TEMP">0</p>
         </div>
         <div class="s_li">
             <h2 id="STATE"></h2>
@@ -94,6 +105,10 @@
         <div id="button" class="c_three">
             <div id="START" class="button">Start</div>
             <div id="PYRO" class="button">Pyro</div>
+        </div>
+    </div>
+    <div class="BottomBox">
+        <div id="bottombox" class="BOT_one">
         </div>
     </div>
     <script src="linkers/Buttons.js"></script>

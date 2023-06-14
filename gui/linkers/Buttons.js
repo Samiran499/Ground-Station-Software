@@ -44,6 +44,7 @@ document.getElementById('PYRO').addEventListener('click', () => {
 function stop() {
     Start_Enable = true;
     Rx = false;
+    descent_par = false;
     ipcRenderer.send('run-script', 'stop');
 }
 

@@ -18,7 +18,6 @@ function createWindow() {
             enableRemoteModule: true
         }
     })
-
     win.loadURL(url.format({
         pathname: path.join(__dirname, 'gui/gui.html'),
         protocol: 'file:',
@@ -41,6 +40,7 @@ function createWindow() {
     Menu.setApplicationMenu(appMenu);
 }
 let script1;
+let script4;
 ipcMain.on('run-script', (event, scriptName, jsonData) => {
     switch (scriptName) {
         case 'start':
@@ -48,6 +48,16 @@ ipcMain.on('run-script', (event, scriptName, jsonData) => {
             script1 = spawn('python', ['C:/rtgs/receive.py']);
             script1.stdout.on('data', (data) => {
                 console.log(`Script 1 output: ${data}`);
+            });
+            break;
+        case 'descent':
+            if (script1) {
+                script1.kill();
+                script1 = undefined; // Reset the script1 variable
+            }
+            script4 = spawn('python', ['C:/rtgs/descent.py']);
+            script4.stdout.on('data', (data) => {
+                console.log(`Script 4 output: ${data}`);
             });
             break;
         case 'pyro':
@@ -60,6 +70,10 @@ ipcMain.on('run-script', (event, scriptName, jsonData) => {
             if (script1) {
                 script1.kill();
                 script1 = undefined; // Reset the script1 variable
+            }
+            if (script4) {
+                script4.kill();
+                script4 = undefined; // Reset the script1 variable
             }
             break;
         case 'savesettings':
