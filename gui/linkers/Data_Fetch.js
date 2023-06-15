@@ -59,7 +59,6 @@ function Load() {
 Load();
 
 let checktime = 0;
-let descent_par = false;
 setInterval(() => {
     if (Rx === true) {
 
@@ -80,14 +79,11 @@ setInterval(() => {
                     GYTOZ_s.innerHTML = data.gyroz + " deg";
                     TEMP_s.innerHTML = data.temp + " C";
                     VEL_s.innerHTML = data.vel + " m/sec";
-                    LAT_s.innerHTML = data.lat_deg + " deg " + data.lat_min + " min " + data.lat_sec + " sec " + data.lat_hem;
-                    LONG_s.innerHTML = data.long_deg + " deg " + data.long_min + " min " + data.long_sec + " sec " + data.long_hem;
-                    TIME_s.innerHTML = data.time / 1000 + " sec";
-                    if (data.state > 2 && descent_par == false) {
-                        console.log("gege")
-                        descent_par = true
-                        ipcRenderer.send('run-script', 'descent');
+                    if (data.lat_deg != undefined) {
+                        LAT_s.innerHTML = data.lat_deg + " deg " + data.lat_min + " min " + data.lat_sec + " sec " + data.lat_hem;
+                        LONG_s.innerHTML = data.long_deg + " deg " + data.long_min + " min " + data.long_sec + " sec " + data.long_hem;
                     }
+                    TIME_s.innerHTML = data.time / 1000 + " sec";
                     if (Pyro_Obj.hasOwnProperty(data.pyro)) {
                         PYRO_s.innerHTML = Pyro_Obj[data.pyro];
                     }

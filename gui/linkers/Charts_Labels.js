@@ -223,6 +223,6 @@ const State_Obj = {
     '3': "DESCENT",
     '4': "DROGUE OUT",
     '5': "MAIN OUT",
-    '7': "TOUCHDOWN",
-    '6': "TOUCHDOWN IDLE"
+    '6': "TOUCHDOWN",
+    '7': "TOUCHDOWN IDLE"
 }

@@ -37,10 +37,6 @@
                 {
                     "from": "support/conf.json",
                     "to": "conf.json"
-                },
-                {
-                    "from": "support/descent.py",
-                    "to": "descent.py"
                 }
             ]
         },
